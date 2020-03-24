@@ -1,9 +1,9 @@
 /**
 **********************************************************************************************************************************************************************************************************************************
-* @file:	sherlock_and_beast.cpp
-* @author:	saket
-* @date:	2020年03月18日 23:33:24 Wednesday
-* @brief:	hacker-rank
+* @file:    sherlock_and_beast.cpp
+* @author:    saket
+* @date:    2020年03月18日 23:33:24 Wednesday
+* @brief:    hacker-rank
 **********************************************************************************************************************************************************************************************************************************
 **/
 
@@ -21,26 +21,20 @@
 // map<long,long> mp ; 
 // set<long> st ; 
 using namespace std ; 
-string s1 ;
-bool f=false ;
-int find(int n,int sum ,string s, int p){
-    if(n < sum ) return 0 ;
-    if(p == 1) return ;
+    vector<string> vec ;
+// string s1 ;
+// bool f=false ;
+string find(int n,int sum ,string s, int p){
+    if(n < sum ) return "" ;
+    if(p == 1) return "";
     if(n == sum ){
-        if(!f){
-            // f=true ;
-            p = 1 ; 
-             s1=s ;
-        }
-        // cout << s << " " ;
-        return 1 ;
+            // vec.push_back(s);
+            vec[0]=s ;
+        return vec[0] ;
     }   
     else{
-        ll c=0 ;
-        // string s ;
-        // loop(0,2,k){
-            c = find(n,sum+3, s+"555", p ) + find(n,sum+5, s+"33333", p ) ;
-        // } 
+        string c ;
+            c = find(n,sum+3, s+"555", p ) + find(n,sum+5, s+"33333", p  ) ;
         return c ;
     }
 }
@@ -52,26 +46,32 @@ int main(){
     while(t--){
     int n ;
     cin >> n ;
-    int a=0, b=0, c=0, d=0 ;
-    
+
+    // cout <<pq .length() << "  ";
+    int a=0, b=0, d=0 ;
+    string c="" ;
+    vec.push_back("asd");
     if(n%3 == 0){
         a = n/3 ;
+        loop(0,a,i) cout << "555" ;
+        cout << endl ;
     }
     else{
         while(n > 30){
-            n -= 15 ;
-            a += 3  ;
+            n -= 3 ;
+            a += 1  ;
         }
         int sum = 0 ;
         int p=0;
             string s="" ;
             c = find( n, sum+3, s+"555",p ) + find( n, sum+5, s+"33333",p ) ;
-        // }
-    }
-    if(f){
-    loop(0,a,i) cout << "555" ;
-         cout << s1 ;
+        // cout << " ## "<< vec[0] << " ## ";
+    if(vec[0] != "asd"){
+        loop(0,a,j) cout << "555" ;
+        cout << vec[0] << endl;
     }
     else cout << -1 << endl ;
     }
+    vec.erase(vec.begin());
+    }  
 }
